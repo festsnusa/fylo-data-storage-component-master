@@ -1,0 +1,34 @@
+mixin icons(arr)
+  .header__box
+    each value in arr
+      a.header__link(href="#!" aria-label="icon") 
+        img.header__icon(src= `./images/icon-${value}.svg`, alt="icon")
+
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Fylo data storage component
+    link(rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png")
+    link(rel="stylesheet", href="./style.css")
+  body
+    .container
+      header.header
+        a(href="#" aria-label="home") 
+          img.header__logo(src="./images/logo.svg")
+        +icons(["document", "folder", "upload"])
+      main.main
+        p.main__title
+          | You’ve used 
+          span.main__span 815 GB 
+          | of your storage
+        .main__bar
+          .main__percent
+        .main__subtitle 
+          span.main__span 0 GB
+          span.main__span 1000 GB
+        p.main__message 
+          span.main__message_span 185 
+          | GB Left
